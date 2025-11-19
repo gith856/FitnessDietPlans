@@ -8,6 +8,10 @@ import Login from './pages/Login';
 import Dashboard from './pages/dashboard';
 import TargetForm from './pages/TargetForm';
 import Weeklyplan from './pages/Weeklyplan';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -19,10 +23,14 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/about' element={<About/>}/>
+      <Route path='/contact' element={<Contact/>}/>
       <Route path='/dashboard' element={<Dashboard/>}/>
       <Route path='/target-setup' element={<TargetForm/>}/>
       <Route path='/weekly-plan' element={<Weeklyplan/>}/>
+    
     </Routes>
+    <Footer/>
     </BrowserRouter>
   )
 }
