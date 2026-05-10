@@ -40,15 +40,28 @@ Generate 7-day plan...
       );
 
       const data = await res.json();
-      const textContent =
-        data?.candidates?.[0]?.content?.parts?.[0]?.text || "{}";
 
-      const cleanText = textContent
-        .replace(/```json|```/g, "")
-        .replace(/[\u0000-\u001F]+/g, "")
-        .trim();
+const textContent =
+  data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-      const plan = JSON.parse(cleanText);
+console.log("Gemini Response:", textContent);
+
+const cleanText = textContent
+  .replace(/```json/g, "")
+  .replace(/```/g, "")
+  .trim();
+
+let plan;
+
+try {
+  plan = JSON.parse(cleanText);
+} catch (error) {
+  console.error("Invalid JSON from Gemini:", cleanText);
+
+  alert("AI returned invalid format. Please try again.");
+
+  return;
+}
 
       navigate("/weekly-plan", { state: { plan, form, bodyType } });
     } catch (err) {

@@ -5,7 +5,7 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Login from './pages/Login';
-import Dashboard from './pages/dashboard';
+import Dashboard from './pages/Dashboard';
 import TargetForm from './pages/TargetForm';
 import Weeklyplan from './pages/Weeklyplan';
 import About from './pages/About';
